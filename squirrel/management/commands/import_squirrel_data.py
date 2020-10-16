@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 from django.core.management.base import BaseCommand
 
@@ -22,7 +23,7 @@ class Command(BaseCommand):
                 obj.longtitude= item['Y']
                 obj.uniqueId= item['Unique Squirrel ID']
                 obj.shift= item['Shift']
-                obj.date = item['Date']
+                obj.date = datetime.strptime(str(item['Date']),'%m%d%Y')
                 obj.age = item['Age']
                 
                 obj.save()
