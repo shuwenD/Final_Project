@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.translation import gettext as _
   
 class Sightings(models.Model):
-    longtitude = models.FloatField(
+    longitude = models.FloatField(
             )
     latitude = models.FloatField(
             )

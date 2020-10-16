@@ -3,5 +3,7 @@ from . import views
 app_name = 'squirrel'
 
 urlpatterns = [
-	path('', views.map, name='map'),
+	path('', views.list, name='list'),
+        path('add', views.add, name = 'add'),
+        path('<int:sight_id>', views.detail, name = 'detail'),
 ]

@@ -8,3 +8,15 @@ def map(request):
         context = {'sightings' :sightings}
         return render (request, 'squirrel/map.html', context)
 
+def list(request):
+	sightings = Sightings.objects.all()
+	context = {'sightings' : sightings}
+	return render (request, 'squirrel/list.html', context)
+def detail(request, sight_id):
+    sightings = get_object_or_404(Sightings, pk=sight_id)
+    context = {'sightings' : sightings}
+    return render (request, 'squirrel/detail.html', context)
+
+def add(request):
+    # to be continued
+    pass

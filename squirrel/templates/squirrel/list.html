@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+	<body>
+		<ul>
+<a href="/sightings/add" class="addlink">Add sightings</a>
+
+{% for sighting in sightings %}
+	<li><a href="{% url 'squirrel:detail' sighting.uniqueId %}">{{ sighting.uniqueId }}</a></li>
+{% endfor %} 
+
+		</ul>
+	</body>>
+</html>

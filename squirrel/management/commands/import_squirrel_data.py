@@ -20,7 +20,7 @@ class Command(BaseCommand):
             for item in reader:
                 obj = Sightings()
                 obj.latitude = item['X']
-                obj.longtitude= item['Y']
+                obj.longitude= item['Y']
                 obj.uniqueId= item['Unique Squirrel ID']
                 obj.shift= item['Shift']
                 obj.date = datetime.strptime(str(item['Date']),'%m%d%Y')
