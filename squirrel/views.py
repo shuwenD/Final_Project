@@ -13,7 +13,7 @@ def list(request):
 	context = {'sightings' : sightings}
 	return render (request, 'squirrel/list.html', context)
 def detail(request, sight_id):
-    sightings = get_object_or_404(Sightings, pk=sight_id)
+    sightings = Sightings.objects.filter(uniqueId = sight_id).first()
     context = {'sightings' : sightings}
     return render (request, 'squirrel/detail.html', context)
 
