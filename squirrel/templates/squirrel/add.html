@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+        <body>
+        <p> Add sighting below.</p>
+            <form action="/sightings/add" method="post">
+    		{% csrf_token %}
+    		{{ form }}
+    		<input type="submit" value="Submit">
+			</form>
+        </body>
+</html>
+
+

@@ -29,5 +29,4 @@ class Command(BaseCommand):
                 obj.save()
 
             msg = f'importing from {file_}'
-            
             self.stdout.write(self.style.SUCCESS(msg))

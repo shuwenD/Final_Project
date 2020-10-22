@@ -1,0 +1,11 @@
+<!doctype html>
+<html>
+        <body>
+        <p> Update this sighting below</p>
+            <form action="/sightings/"+'sighting.uniqueId' method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+                        </form>
+        </body>
+</html>
