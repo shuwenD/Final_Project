@@ -24,10 +24,14 @@ def add(request):
 
 def update(request,sight_id):
     context ={}
-    instance = Sightings.objects.filter(uniqueId =sight_id).first()
-    form = SightingForm(instance=instance)
+    instance = Sightings.objects.get(uniqueId =sight_id)
+    form = SightingForm(request.POST or None,instance=instance)
     if form.is_valid():
-    	form.save()
-    	return HttpResponseRedirect('/sightings')
-    context['form']= form
-    return render(request,'squirrel/update.html',context)
+        instance = form.save()
+        instance.save()
+        messages.success(request, "You successfully updated the post")
+        context = {'form': form}
+        return render(request, '/list.html', context)
+    else:
+        context= {'form': form, 'error': 'The form was not updated successfully. Please enter in a title and content'}
+        return render(request,'squirrel/update.html',context)
